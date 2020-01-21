@@ -1,3 +1,27 @@
+def quicksort2(l, low, high):
+    if low >= high:
+        return l
+    
+    pivot_index = low 
+
+    # partition 
+    for i in range(low, high):
+        if l[i] < l[pivot_index]:
+            l[i], l[pivot_index + 1] = l[pivot_index + 1], l[i]
+            l[pivot_index], l[pivot_index + 1] = l[pivot_index + 1], l[pivot_index]
+            pivot_index += 1
+    quicksort2(l, low, pivot_index)
+    quicksort2(l, pivot_index + 1, high)
+
+    return l
+
+def quicksort(l):
+    return quicksort2(l, 0, len(l))
+
+l = [2, 9, 5, 3, 0]
+quicksort(l)
+print(l)
+
 # TO-DO: complete the helpe function below to merge 2 sorted arrays
 def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )

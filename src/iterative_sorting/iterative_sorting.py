@@ -30,6 +30,24 @@ def selection_sort( arr ):
         arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
     return arr
 
+# beej's solution
+
+def selection_sort(l):
+    for u in range(len(l)):
+        min_index = u
+
+        # now loop through the rest of the list, aka the unsorted index
+        for s in range(u + 1, len(l)):
+            # find the smallest value in the unsorted list
+            if l[s] < l[min_index]:
+                min_index = s
+        # smallest value found. now swap! 
+        l[u], l[min_index] = l[min_index], l[u]
+    return l
+
+
+
+
 # TO-DO:  implement the Bubble Sort function below
 
 def bubble_sort(arr):
